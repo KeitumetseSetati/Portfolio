@@ -6,13 +6,6 @@
   --card:rgba(255,255,255,.075); --border:rgba(120,153,199,.22);
   --bg:var(--brand);
 }
-/* Light mode */
-html[data-theme="light"]{
-  --brand:#ffffff;  --ink:#f8fafc; --ink-2:#eef2f7;
-  --text:#0b1220;   --muted:#5b6577;
-  --card:#ffffff;   --border:rgba(2,6,23,.08);
-  --bg:#ffffff;
-}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -32,7 +25,6 @@ h1,.section-title,.brand-name{font-family:"Space Grotesk",Inter,system-ui,sans-s
 /* NAV + BRAND */
 .navbar .navbar-brand{font-weight:800;letter-spacing:.4px}
 .glass-nav{background:rgba(4,10,26,.55)!important;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
-html[data-theme="light"] .glass-nav{background:rgba(255,255,255,.7)!important}
 .brand-name{white-space:nowrap}
 
 .brand-letter{position:relative;width:34px;height:34px;display:inline-block}
@@ -51,16 +43,15 @@ html[data-theme="light"] .glass-nav{background:rgba(255,255,255,.7)!important}
 .brand-fab{position:fixed;right:20px;top:20px;z-index:1100;border:none;background:transparent;padding:0}
 .brand-fab-inner{display:grid;grid-template-columns:auto auto auto;align-items:center;gap:.4rem;padding:.5rem .7rem;border-radius:14px;background:linear-gradient(135deg,var(--accent),#f1c40f);color:#000;font-weight:800;box-shadow:0 12px 30px rgba(247,223,30,.35)}
 .brand-fab .kc{font-weight:800}
-.brand-fab .stars{display:block}.brand-fab .sun{display:none}
-html[data-theme="light"] .brand-fab .stars{display:none}
-html[data-theme="light"] .brand-fab .sun{display:block}
+.brand-fab .stars{display:block}
+.brand-fab .sun{display:none}
 
 /* Nav link hover underline */
 .navbar .nav-link{position:relative;font-weight:600}
 .navbar .nav-link::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,#4ea1ff,var(--accent));transition:width .25s ease}
 .navbar .nav-link:hover::after{width:100%}
 
-/* THEME-OUTLINED BUTTON (visible in both modes) */
+/* THEME-OUTLINED BUTTON */
 .btn-outline-theme{
   border:1px solid var(--text);
   color:var(--text);
@@ -102,9 +93,8 @@ html[data-theme="light"] .brand-fab .sun{display:block}
 
 /* About portrait */
 .profile-img-wrapper img.darken-img{filter:brightness(70%) contrast(110%);border-radius:14px}
-html[data-theme="light"] .profile-img-wrapper img.darken-img{filter:brightness(95%) contrast(105%)}
 
-/* theme-aware plain sections (About & Education) */
+/* plain sections (About & Education) */
 .section-plain{color:var(--text)}
 .section-plain .section-title{color:var(--text)}
 .section-plain p,.section-plain li,.section-plain .section-lead{color:var(--muted)}
@@ -138,21 +128,20 @@ html[data-theme="light"] .profile-img-wrapper img.darken-img{filter:brightness(9
 .glass{background:var(--card);border:1px solid var(--border);backdrop-filter:blur(8px)}
 .footer{background:var(--brand);color:#cbd5e1;border-top:1px solid var(--border)}
 
-/* THEME-AWARE FORM STYLING */
+/* FORM STYLING (dark) */
 .form-label{ color: var(--text); opacity:.95; }
 .glass .form-control{
   border:1px solid var(--border);
 }
 .glass .form-control::placeholder{ color: var(--muted); opacity:.8 }
 
-/* Dark mode: darker inputs for comfort */
+/* Dark inputs for comfort */
 html[data-theme="dark"] .glass .form-control{
   background:#0f1f45; color:var(--text);
 }
 html[data-theme="dark"] .glass textarea.form-control{
   background:#0f1f45; color:var(--text);
 }
-/* Light mode keeps Bootstrap defaults */
 
 /* Focus ring */
 .glass .form-control:focus{
@@ -168,30 +157,7 @@ html[data-theme="dark"] .glass textarea.form-control{
 /* Back to top */
 #backToTop{position:fixed;right:16px;bottom:16px;z-index:1080;display:none}
 
-/* ==================== NEW: Light-mode text visibility =================== */
-/* Navbar brand + links become dark enough on light mode */
-html[data-theme="light"] .navbar-dark .navbar-brand,
-html[data-theme="light"] .navbar-dark .navbar-nav .nav-link,
-html[data-theme="light"] .navbar-dark .navbar-text{
-  color: var(--text) !important;
-}
-/* Darker hamburger on light bg */
-html[data-theme="light"] .navbar-dark .navbar-toggler{border-color:rgba(11,18,32,.25)}
-html[data-theme="light"] .navbar-dark .navbar-toggler-icon{
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(11,18,32,0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-/* Hero text (even ones using .text-light) should be dark in light mode */
-html[data-theme="light"] .dark-hero .lead,
-html[data-theme="light"] .dark-hero .social a,
-html[data-theme="light"] .text-light{
-  color: var(--text) !important;
-}
-/* Keep underline accent the same in light mode */
-html[data-theme="light"] .navbar .nav-link::after{
-  background:linear-gradient(90deg,#4ea1ff,var(--accent));
-}
-
-/* ==================== NEW: Education degree visibility ================== */
+/* Education degree visibility */
 #education .card .fw-bold{
-  color: var(--text) !important;  /* same readability as other text in both modes */
+  color: var(--text) !important;
 }
